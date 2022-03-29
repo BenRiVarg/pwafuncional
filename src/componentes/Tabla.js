@@ -49,7 +49,7 @@ function Tabla( props) {
 
     const insertar=()=>{
         var elementoInsertar=elemento;
-        elementoInsertar.id=datos[datos.length-1].id+1;
+        elementoInsertar.id=parseInt(datos[datos.length-1].id)+1;
         var dataNueva=datos;
         dataNueva.push(elementoInsertar);
         setDatos(datos)
