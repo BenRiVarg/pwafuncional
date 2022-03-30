@@ -5,43 +5,23 @@ import FormularioP from'./componentes/FormularioP.js';
 import Tabla from'./componentes/Tabla.js';
 //import {register} from './serviceWorkerRegistration.js';
 import { useState } from 'react';
+import Home from  './componentes/vistas/Home.js';
+import Login from  './componentes/vistas/Login.js';
+import Ua from  './componentes/vistas/UltraAdmin';
 
-const axios = require('axios').default;
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
+
 
 function App() {
 
  
 
-
-/* const dataURL= async ()=>{
-    
- 
-
-  let data= await new Promise ((resolver, rechazar) => {
-
-        // Make a request for a user with a given ID
-              axios.get('https://gortiz.site/ConexAndroid/pruebaPWA/API/registros.php')
-              .then(function (response) {
-                // handle success
-                //console.log(response.data);
-                resolver(response.data);
-              })
-              .catch(function (error) {
-                // handle error
-                console.log(error);
-              })
-              .then(function () {
-                // always executed
-              });
-
-  })
-
-  return data;
-  
-} */
-
-/* const pdata= await dataURL();
-console.log(pdata); */
 
 
   const [data,setData]=useState([]);
@@ -61,45 +41,10 @@ console.log(pdata); */
       console.log(data);
       setData(data);
     })
-  /*   // Make a request for a user with a given ID
-    axios.get('https://gortiz.site/ConexAndroid/pruebaPWA/API/registros.php')
-    .then(function (response) {
-      // handle success
-      //console.log(response.data);
-      setData(response.data);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    }); */
-
- /*      const info=[
-    { id:1, nombre: "Prueba"},
-    { id:2, nombre: "Prueba2"}
-  ]; */
- /*  axios.get('https://gortiz.site/ConexAndroid/pruebaPWA/API/registros.php')
-  .then(function (response) {
-    // handle success
-    console.log(response.data);
-    setData(response.data);
-
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });
- 
-  console.log("Ejecutandose"); */
 
    },[]);
-   console.log("Afuera-----------");
-   console.log(data);
+ /*   console.log("Afuera-----------");
+   console.log(data); */
   
 
   
@@ -107,7 +52,31 @@ console.log(pdata); */
   
 
   return (
-    <div className="App">
+
+    
+    <Router>
+      <div className="App">
+          <ul className="App-header">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/ua">UltraAdmin</Link>
+            </li>
+        </ul>
+      </div>
+      <Routes>    
+        <Route exact path='/' element={< Home />}></Route>
+        <Route exact path='/login' element={< Login />}></Route>
+        <Route exact path='/ua' element={< Ua />}></Route>
+      </Routes>
+
+    </Router>
+    
+/*     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
        
@@ -122,7 +91,7 @@ console.log(pdata); */
         { data.length>0 ?
          (<Tabla datos={data}  setGlobal={retornoInfo}/> ):<p>No hay datos</p>}
       </header>
-    </div>
+    </div> */
   );
 }
 
