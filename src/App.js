@@ -55,7 +55,7 @@ function App() {
 
     
     <Router>
-      <div className="App">
+     {/*  <div className="App">
           <ul className="App-header">
             <li>
               <Link to="/">Home</Link>
@@ -67,9 +67,9 @@ function App() {
               <Link to="/ua">UltraAdmin</Link>
             </li>
         </ul>
-      </div>
+      </div> */}
       <Routes>    
-        <Route exact path='/' element={< Home />}></Route>
+        <Route exact path='/ConexAndroid/pruebaPWA' element={< Home />}></Route>
         <Route exact path='/login' element={< Login />}></Route>
         <Route exact path='/ua' element={< Ua />}></Route>
       </Routes>
