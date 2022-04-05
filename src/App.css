@@ -73,7 +73,7 @@ body { min-height: 100vh; }
 @media (min-width: 768px) and (max-width: 991px) {
   .navegacion {
     height: 10vh;
-    background-color: yellow;
+   
   }
 
   .botonActivo {
@@ -116,6 +116,35 @@ body { min-height: 100vh; }
 }
 
 @media (max-width: 575px) {
-  .navegacion {background-color: blue;}
+  .navegacion {background-color: lightcoral;
+    height: 10vh;}
+  .botonActivo {
+    background-color: #0a70a9; /* Green */
+    
+    box-shadow: 10px 10px 20px     #262626 inset;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width:33.33%;
+    height:100%;
+    white-space: nowrap;
+  }
+
+  .button {
+    background-image: linear-gradient(180deg, #0d8ed9,   #063f60);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width:33.33%;
+    height:100%;
+    white-space: nowrap;
+  }
 }
 
