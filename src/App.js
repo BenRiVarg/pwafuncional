@@ -8,7 +8,8 @@ import { useState } from 'react';
 import Home from  './componentes/vistas/Home.js';
 import Login from  './componentes/vistas/Login.js';
 import Ua from  './componentes/vistas/UltraAdmin';
-
+import app  from './firebase.js';
+import messaging from './firebase.js';
 
 import {
   BrowserRouter as Router,
@@ -34,14 +35,26 @@ function App() {
 
   useEffect(() => {
 
-    fetch("https://gortiz.site/ConexAndroid/pruebaPWA/API/registros.php").then(
+    /* fetch("https://gortiz.site/ConexAndroid/pruebaPWA/API/registros.php").then(
       (res) => res.json()
     ).then((data)=>{
       console.log("Datos Obtenidos de la API");
       console.log(data);
       setData(data);
+    }) */
+    /* console.log(app)
+    const messaging=app.initMessaging();
+    messaging.requestPermission().then(()=>{
+      return messaging.getToken();
     })
-
+    .then(token=>{
+      console.log("Token: ",token);
+    })
+    .catch(
+      error=>{
+        console.log(error);
+      }
+    ) */
    },[]);
  /*   console.log("Afuera-----------");
    console.log(data); */
