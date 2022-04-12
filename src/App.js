@@ -8,8 +8,7 @@ import { useState } from 'react';
 import Home from  './componentes/vistas/Home.js';
 import Login from  './componentes/vistas/Login.js';
 import Ua from  './componentes/vistas/UltraAdmin';
-import app  from './firebase.js';
-import messaging from './firebase.js';
+import { requestForToken } from './firebase';
 
 import {
   BrowserRouter as Router,
@@ -34,7 +33,7 @@ function App() {
   }
 
   useEffect(() => {
-
+    requestForToken();
     /* fetch("https://gortiz.site/ConexAndroid/pruebaPWA/API/registros.php").then(
       (res) => res.json()
     ).then((data)=>{

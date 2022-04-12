@@ -22,7 +22,7 @@ const messaging = getMessaging(app);
 //messaging.getToken({vapidKey: "BMuXQKAckRb06aHNMyxPGRvoM8UCeixhBKaz33J_JVta-ixlx_HDUEKEduDHMmOFUn1H3j06WobcUL4aMtPRZ5o"});
 
 
-getToken(messaging, { vapidKey: 'BMuXQKAckRb06aHNMyxPGRvoM8UCeixhBKaz33J_JVta-ixlx_HDUEKEduDHMmOFUn1H3j06WobcUL4aMtPRZ5o' }).then((currentToken) => {
+/* getToken(messaging, { vapidKey: 'BMuXQKAckRb06aHNMyxPGRvoM8UCeixhBKaz33J_JVta-ixlx_HDUEKEduDHMmOFUn1H3j06WobcUL4aMtPRZ5o' }).then((currentToken) => {
     if (currentToken) {
       // Send the token to your server and update the UI if necessary
       // ...
@@ -35,6 +35,23 @@ getToken(messaging, { vapidKey: 'BMuXQKAckRb06aHNMyxPGRvoM8UCeixhBKaz33J_JVta-ix
   }).catch((err) => {
     console.log('An error occurred while retrieving token. ', err);
     // ...
-  });
+  }); */
+
+
+  export const requestForToken = () => {
+    return getToken(messaging, { vapidKey: "BMuXQKAckRb06aHNMyxPGRvoM8UCeixhBKaz33J_JVta-ixlx_HDUEKEduDHMmOFUn1H3j06WobcUL4aMtPRZ5o" })
+      .then((currentToken) => {
+        if (currentToken) {
+          console.log('current token for client: ', currentToken);
+          // Perform any other neccessary action with the token
+        } else {
+          // Show permission request UI
+          console.log('No registration token available. Request permission to generate one.');
+        }
+      })
+      .catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+      });
+  };
 
 export default app ;
